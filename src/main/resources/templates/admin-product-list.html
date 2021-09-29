@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="frags :: head"></head>
+<body>
+<header th:replace="frags :: logo"></header>
+
+<div class="content">
+    <div id="add-product-section">
+        <h2>Add New Product</h2>
+        <form th:action="@{/admin/product/create}" method="post" id="new-product-form">
+            <label for="imageFileName">Image File Name</label>
+            <input id="imageFileName" name="imageFileName" type="text" path="imageFileName">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" path="name">
+            <label for="description">Description</label>
+            <input id="description" name="description" type="text" path="description" class="description">
+            <label for="price">Price</label>
+            <input id="price" name="price" type="text" path="price" class="price">
+            <label for="stock">Stock</label>
+            <input id="stock" name="stock" type="text" path="stock" class="stock">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id="admin-products-section">
+        <h2>Current Product List</h2>
+        <div class="admin-product-list">
+            <span>Image</span>
+            <span>Name</span>
+            <span>Price</span>
+            <span>Stock</span>
+        </div>
+        <div th:each="p : ${productList}" class="admin-product-list">
+            <img th:src="@{/img/{file}(file=${p.imageFileName})}" th:alt="${p.name}">
+            <span th:text="${p.name}"></span>
+            <span th:text="${p.price}"></span>
+            <span th:text="${p.stock}"></span>
+            <button th:onclick="|document.location='@{/admin/product/{id}(id=${p.id})}'|">edit</button>
+            <button th:onclick="|document.location='@{/admin/product/{id}/delete(id=${p.id})}'|">delete</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

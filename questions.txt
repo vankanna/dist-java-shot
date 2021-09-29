@@ -1,0 +1,3 @@
+How can I increment the product id when creating a new product?
+when i create a product the id is 0 so i cannot delete it either.
+I can edit the product though

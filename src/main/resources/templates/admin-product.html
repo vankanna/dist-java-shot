@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="frags :: head"></head>
+<body>
+<header th:replace="frags :: logo"></header>
+
+<div class="content">
+    <form id="product-form" th:action="@{/admin/product/{id}/update(id=${product.id})}" method="post">
+        <input type="hidden" path="imageFileName" value="${product.imageFileName}">
+        <input type="hidden" path="id" value="${product.id}">
+        <input type="text" path="name" th:field="${product.name}">
+        <img th:src="@{/img/{file}(file=${product.imageFileName})}" th:alt="${product.name}">
+        <input type="text" path="description" class="description" th:field="${product.description}">
+        <input type="text" path="price" class="price" th:field="${product.price}">
+        <input type="text" path="stock" class="stock" th:field="${product.stock}">
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+body {
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+
+.hangul {
+    font-family: 'Black Han Sans', sans-serif;
+}
+/* Product List*/
+
+.product-list {
+    font-family: Consolas;
+    font-size: x-large;
+    text-align: center;
+    width: 20%;
+    border: 2px solid #000;
+    margin: 2%;
+    float: left;
+}
+
+.product-list:first-child {
+    margin-left: 3.3%;
+}
+
+.product-list img{
+    width: 80%;
+}
+
+.product-list button {
+    background-color: #333;
+    color: #EEE;
+    border: none;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 80%;
+    margin: 10px;
+}
+
+/* Admin Portal stuff */
+
+#admin-link {
+    float: right;
+    text-decoration: none;
+    color: #000000;
+}
+
+#add-product-section {
+    width: 80%;
+    padding-left: 5%;
+}
+
+#new-product-form label {
+    display: block;
+    margin: 0 auto;
+}
+
+#new-product-form input {
+    margin-left: 25px;
+    margin-top: 10px;
+    display: block;
+}
+
+#admin-products-section {
+    width: 100%;
+    padding-left: 5%;
+}
+
+.admin-product-list {
+    border-bottom: 2px solid #000;
+    padding: 25px 5px;
+    height: 50px;
+    width: 80%;
+    font-size: 1.2rem;
+}
+
+.admin-product-list img {
+    width: 65px;
+    margin-right: 10%;
+}
+
+.admin-product-list span {
+    display: inline-block;
+    margin: 15px;
+    width: 20%;
+}
+
+.admin-product-list button {
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 16px;
+    width: 75px;
+    margin: 10px;
+    background-color: #ffffff;
+    float: right;
+}
+
+#product-form img {
+    max-width: 10%;
+    max-height: 10%;
+}
+/**/
+header * {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Consolas', cursive;
+    text-align: center;
+}
+
+a img {
+    text-align: center;
+    height: 150px;
+    width: 150px;
+}
+
+.error {
+    color: red;
+}
+
+
+
+h3 {
+    text-align: center;
+}

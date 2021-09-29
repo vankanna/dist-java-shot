@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}">TITLE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+
+<header th:fragment="logo">
+    <a id="admin-link" href="/admin/products">Admin Portal</a>
+    <a th:href="@{/products}">
+        <img th:src="@{/img/logo.gif}" alt="Store Logo">
+        <h1>Order Korean Street Food</h1>
+    </a>
+    <h2>Pick What you want to have!</h2>
+</header>
+
+<div th:fragment="sightings" class="sightings">
+    <h3 th:text="|Recent sightings of ${squirrel.commonName}|">OTHER SIGHTINGS</h3>
+    <table>
+        <tr>
+            <th>Spotted By</th>
+            <th>At</th>
+            <th>On</th>
+            <th>Number Spotted</th>
+            <th>Temperature</th>
+        </tr>
+        <tr th:each="si : ${sightingList}">
+            <td th:text="${si.spotterName}">NAME</td>
+            <!--<td th:text="${si.locationId}">LOCATION</td>-->
+            <td th:text="${si.location.name}">LOCATION</td>
+            <!--<td th:text="${si.spottedAt}">DATE</td>-->
+            <td th:text="${#temporals.format(si.spottedAt, 'MMM dd yyyy hh:mm a')}">DATE</td>
+            <td th:text="${si.count}">COUNT</td>
+            <td th:text="${si.temperature}">TEMPERATURE</td>
+        </tr>
+    </table>
+    <h3><a th:href="@{/product}">Back to List</a></h3>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="frags :: head"></head>
+<body>
+<header th:replace="frags :: logo"></header>
+
+<div class="content">
+    <img th:src="@{/img/{file}(file=${product.imageFileName})}" th:alt="${product.name}">
+    <h3 th:text="${product.name}"></h3>
+    <p class="description" th:text="${product.description}"></p>
+    <p class="price" th:text="${product.price}"></p>
+    <p class="stock" th:text="${product.stock}"></p>
+
+
+</div>
+
+</body>
+</html>
