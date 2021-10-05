@@ -9,6 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class ProductController {
@@ -28,13 +30,25 @@ public class ProductController {
         return "product-list";
     }
 
-    @RequestMapping("/product/{product_id}")
-    public String showProduct(Model model, @PathVariable int product_id) {
+    @RequestMapping("product/sale-summary")
+    public String orderSummary(Model model, @RequestParam String[] productIds)
+    {
+        List<Product> productList = new ArrayList<Product>();
+        double totalCost = 0;
 
-        Product product = productService.getProduct(product_id);
-        model.addAttribute("pageTitle", product.getName());
-        model.addAttribute("product", product);
+        for (String id: productIds) {
+            Product product = productService.getProduct(Integer.parseInt(id));
+            productList.add(product);
+            totalCost += product.getPrice();
+            int stock = product.getStock();
+            product.setStock(stock - 1);
+            productService.saveProduct(product);
+        }
+        model.addAttribute("pageTitle", "Order Summary");
+        model.addAttribute("productList", productList);
+        model.addAttribute("totalCost", totalCost);
 
-        return "product";
+        return "sale-summary";
+
     }
 }

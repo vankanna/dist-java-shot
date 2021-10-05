@@ -5,15 +5,13 @@
 <header th:replace="frags :: logo"></header>
 
 <div class="content">
-    <div th:each="p : ${productList}" class="product-list">
+    <div th:each="p : ${productList}" class="product-list" th:attr="data-productId=${p.id}">
         <h3 th:text="${p.name}"></h3>
         <p class="price" th:text="${p.price}"></p>
-        <p class="stock" th:text="${p.stock}"></p>
         <img th:src="@{/img/{file}(file=${p.imageFileName})}" th:alt="${p.name}">
-        <br/>
-        <button th:onclick="|document.location='@{/product(id=${p.id})}'|">Add To Cart</button>
-        <br/>
     </div>
+    <div class="clear-float"></div>
+    <div id="submit-order">Submit</div>
 </div>
 
 </body>

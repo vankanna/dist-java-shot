@@ -12,8 +12,20 @@ function removeFromCart(id) {
     }
 }
 $( document ).ready(function() {
-
+console.log("is it working");
     $('.product-list').click(function(){
-        var product = $(this).text(); //$(this) is what you clicked!
+        console.log("here")
+        var id = $(this).attr("data-productId")
+        if(cart.includes(id)) {
+            $(this).removeClass("selected");
+            removeFromCart(id);
+        } else {
+            $(this).addClass("selected");
+            addToCart(id);
+        }
     });
+
+    $('#submit-order').click( function() {
+        window.location.href = "http://localhost:8080/product/sale-summary?productIds=" + cart.join(",");
+    })
 });

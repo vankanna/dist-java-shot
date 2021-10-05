@@ -16,6 +16,7 @@ body {
     border: 2px solid #000;
     margin: 2%;
     float: left;
+    padding-bottom: 25px;
 }
 
 .product-list:first-child {
@@ -127,4 +128,32 @@ a img {
 
 h3 {
     text-align: center;
+}
+
+#submit-order {
+    margin: 0 auto;
+    height: 50px;
+    width: 100px;
+    border: 2px solid #333333;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.selected {
+    background-color: mediumseagreen;
+}
+
+.clear-float {
+    clear: both;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #999;
+    padding: 1rem;
+    text-align: left;
 }
